@@ -1,60 +1,48 @@
 # cnr_common
-List of commonly used utility libraries.
+A collection of commonly used utility libraries.
 
 ## Download
-Download the submodules:
+
+To download the submodules, use the following command:
 ```bash 
 git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/cnr_common.git
 ```
-Keep the submodules update with:
+
+Keep the submodules up to date with:
 ```bash
 git submodule update --init --recursive
 ```
 
 ## Install
 
-1. Set the installation directory:
+Since these are common packages, it is recommended to compile the workspace without any other workspaces sourced. If you have a chained workspace setup, this should be the first one in the chain.
+
+The package provides a `.sh` file to automate the process of compiling and installing all the packages. Navigate to the workspace folder where `cnr_common` is located and follow these instructions:
+
+1. Copy and prepare the build script:
     ```bash
-    export PATH_TO_WS=path_to_your_ws/install
+    cp cnr_common/build_template.sh build.sh && sed -i '1i PATH_TO_WS="$(pwd)"' build.sh
     ```
 
-2. Compile and install `cnr_yaml`:
+2. Run the build script:
     ```bash
-    cd $PATH_TO_WS/cnr_common
-    mkdir -p $PATH_TO_WS/build/cnr_yaml
-    cmake -S cnr_yaml -B $PATH_TO_WS/build/cnr_yaml -DCMAKE_INSTALL_PREFIX=$PATH_TO_WS/install
-    make -C $PATH_TO_WS/build/cnr_yaml install
+    . build.sh
     ```
 
-3. Compile and install `cnr_param`:
-    ```bash
-    mkdir -p $PATH_TO_WS/build/cnr_param
-    cmake -S cnr_param -B $PATH_TO_WS/build/cnr_param -DCMAKE_INSTALL_PREFIX=$PATH_TO_WS/install -DCOMPILE_MAPPED_FILE_MODULE=ON
-    make -C $PATH_TO_WS/build/cnr_param install
-    ```
+### Environment Configuration
 
-Note that `cnr_param` needs the environment variable `CNR_PARAM_ROOT_DIRECTORY` to be defined. For example, you can define it in the `~/.bashrc` file as follows:
+Note that `cnr_param` requires the environment variable `CNR_PARAM_ROOT_DIRECTORY` to be defined. For example, you can define it in the `~/.bashrc` file as follows:
 
 ```bash
 export CNR_PARAM_ROOT_DIRECTORY="/tmp/cnr_param"
 ```
+
 This is the folder used by `cnr_param` to save parameters. See the dedicated [GitHub page](https://github.com/CNR-STIIMA-IRAS/cnr_param) for more information.
 
-4. Compile and install `cnr_logger`:
-    ```bash
-    mkdir -p $PATH_TO_WS/build/cnr_logger
-    cmake -S cnr_logger -B $PATH_TO_WS/build/cnr_logger -DCMAKE_INSTALL_PREFIX=$PATH_TO_WS/install -DUSE_ROS1=False -DCOMPILE_EXAMPLE=True -DENABLE_TESTING=True
-    make -C $PATH_TO_WS/build/cnr_logger install
-    ```
+### Final Configuration
 
-5. Compile and install `cnr_class_loader`:
-    ```bash
-    mkdir -p $PATH_TO_WS/build/cnr_class_loader
-    cmake -S cnr_class_loader -B $PATH_TO_WS/build/cnr_class_loader -DCMAKE_INSTALL_PREFIX=$PATH_TO_WS/install
-    make -C $PATH_TO_WS/build/cnr_class_loader install
-    ```
+At the end of the process, add these lines to your `~/.bashrc` file to ensure the installed libraries are visible:
 
-Add these lines to your `~.bashrc` file:
 ```bash
 if [[ ":$PATH:" != *":path_to_your_ws/install/bin:"* ]]; then
     export PATH="path_to_your_ws/install/bin:$PATH"
@@ -65,5 +53,6 @@ fi
 if [[ ":$CMAKE_PREFIX_PATH:" != *":path_to_your_ws/install:"* ]]; then
     export CMAKE_PREFIX_PATH="path_to_your_ws/install:$CMAKE_PREFIX_PATH"
 fi
-``` 
-where `path_to_your_ws/install` is the path to the install folder. These are necessary to make the installed libraries visible.
+```
+
+Replace `path_to_your_ws/install` with the actual path to your install folder. These settings are necessary to make the installed libraries visible.
