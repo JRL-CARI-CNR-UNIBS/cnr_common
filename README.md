@@ -10,6 +10,7 @@ git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/cnr_common.
 
 Keep the submodules up to date with:
 ```bash
+cd cnr_common
 git submodule update --init --recursive
 . update_submodules.sh
 ```
