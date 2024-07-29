@@ -46,14 +46,14 @@ This is the folder used by `cnr_param` to save parameters. See the dedicated [Gi
 At the end of the process, add these lines to your `~/.bashrc` file to ensure the installed libraries are visible:
 
 ```bash
-if [[ ":$PATH:" != *":path_to_your_ws/install/bin:"* ]]; then
-    export PATH="path_to_your_ws/install/bin:$PATH"
+if [[ ":$PATH:" != *":$HOME/path_to_your_ws/install/bin:"* ]]; then
+    export PATH="$HOME/path_to_your_ws/install/bin:$PATH"
 fi
-if [[ ":$LD_LIBRARY_PATH:" != *":path_to_your_ws/install/lib:"* ]]; then
-    export LD_LIBRARY_PATH="path_to_your_ws/install/lib:$LD_LIBRARY_PATH"
+if [[ ":$LD_LIBRARY_PATH:" != *":$HOME/path_to_your_ws/install/lib:"* ]]; then
+    export LD_LIBRARY_PATH="$HOME/path_to_your_ws/install/lib:$LD_LIBRARY_PATH"
 fi
-if [[ ":$CMAKE_PREFIX_PATH:" != *":path_to_your_ws/install:"* ]]; then
-    export CMAKE_PREFIX_PATH="path_to_your_ws/install:$CMAKE_PREFIX_PATH"
+if [[ ":$CMAKE_PREFIX_PATH:" != *":$HOME/path_to_your_ws/install:"* ]]; then
+    export CMAKE_PREFIX_PATH="$HOME/path_to_your_ws/install:$CMAKE_PREFIX_PATH"
 fi
 ```
 
