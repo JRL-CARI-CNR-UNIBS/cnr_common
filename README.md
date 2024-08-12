@@ -3,14 +3,21 @@ A collection of commonly used utility libraries.
 
 ## Download
 
-To download the submodules, use the following command:
+To download the submodules, first move to the workspace directory and create a `/src` folder:
+```bash 
+cd ~/path_to_your_ws
+mkdir src
+cd src
+```
+
+and then use the following command:
 ```bash 
 git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/cnr_common.git
 ```
 
 Keep the submodules up to date with:
 ```bash
-cd cnr_common
+cd ~/path_to_your_ws/src/cnr_common
 git submodule update --init --recursive
 . update_submodules.sh
 ```
@@ -19,11 +26,11 @@ git submodule update --init --recursive
 
 Since these are common packages, it is recommended to compile the workspace without any other workspaces sourced. If you have a chained workspace setup, this should be the first one in the chain.
 
-The package provides a `.sh` file to automate the process of compiling and installing all the packages. Navigate to the workspace folder where `cnr_common` is located and follow these instructions:
+The package provides a `.sh` file to automate the process of compiling and installing all the packages. Navigate to the workspace folder where `cnr_common` is located (`~/path_to_your_ws`) and follow these instructions:
 
 1. Copy and prepare the build script:
     ```bash
-    cp cnr_common/build_template.sh build.sh && sed -i '1i PATH_TO_WS="$(pwd)"' build.sh
+    cp src/cnr_common/build_template.sh build.sh && sed -i '1i PATH_TO_WS="$(pwd)"' build.sh
     ```
 
 2. Run the build script:
@@ -46,15 +53,17 @@ This is the folder used by `cnr_param` to save parameters. See the dedicated [Gi
 At the end of the process, add these lines to your `~/.bashrc` file to ensure the installed libraries are visible:
 
 ```bash
-if [[ ":$PATH:" != *":$HOME/path_to_your_ws/install/bin:"* ]]; then
-    export PATH="$HOME/path_to_your_ws/install/bin:$PATH"
+export CNR_COMMON_WS_INSTALL_FOLDER="$HOME/path_to_your_ws/install"
+
+if [[ ":$PATH:" != *":$CNR_COMMON_WS_INSTALL_FOLDER/bin:"* ]]; then
+    export PATH="$CNR_COMMON_WS_INSTALL_FOLDER/bin:$PATH"
 fi
-if [[ ":$LD_LIBRARY_PATH:" != *":$HOME/path_to_your_ws/install/lib:"* ]]; then
-    export LD_LIBRARY_PATH="$HOME/path_to_your_ws/install/lib:$LD_LIBRARY_PATH"
+if [[ ":$LD_LIBRARY_PATH:" != *":$CNR_COMMON_WS_INSTALL_FOLDER/lib:"* ]]; then
+    export LD_LIBRARY_PATH="$CNR_COMMON_WS_INSTALL_FOLDER/lib:$LD_LIBRARY_PATH"
 fi
-if [[ ":$CMAKE_PREFIX_PATH:" != *":$HOME/path_to_your_ws/install:"* ]]; then
-    export CMAKE_PREFIX_PATH="$HOME/path_to_your_ws/install:$CMAKE_PREFIX_PATH"
+if [[ ":$CMAKE_PREFIX_PATH:" != *":$CNR_COMMON_WS_INSTALL_FOLDER:"* ]]; then
+    export CMAKE_PREFIX_PATH="$CNR_COMMON_WS_INSTALL_FOLDER:$CMAKE_PREFIX_PATH"
 fi
 ```
 
-Replace `path_to_your_ws/install` with the actual path to your install folder. These settings are necessary to make the installed libraries visible.
+Assign to the variable `$CNR_COMMON_WS_INSTALL_FOLDER` the actual path to your install folder. These settings are necessary to make the installed libraries visible.

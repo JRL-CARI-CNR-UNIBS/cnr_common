@@ -1,4 +1,5 @@
-cd $PATH_TO_WS/cnr_common
+cd $PATH_TO_WS/src/cnr_common
+
 mkdir -p $PATH_TO_WS/build/cnr_yaml
 cmake -S cnr_yaml -B $PATH_TO_WS/build/cnr_yaml -DCMAKE_INSTALL_PREFIX=$PATH_TO_WS/install
 make -C $PATH_TO_WS/build/cnr_yaml install
