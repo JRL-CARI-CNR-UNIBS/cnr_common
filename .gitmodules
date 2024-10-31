@@ -9,7 +9,7 @@
 [submodule "cnr_param"]
 	path = cnr_param
 	url = https://github.com/CNR-STIIMA-IRAS/cnr_param.git
-	branch = no-ament-only-cmake
+	branch = master
 [submodule "cnr_class_loader"]
 	path = cnr_class_loader
 	url = https://github.com/JRL-CARI-CNR-UNIBS/cnr_class_loader.git
