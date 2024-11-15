@@ -28,7 +28,7 @@ First, install the dependencies:
 sudo apt update
 sudo apt -y install libboost-all-dev libeigen3-dev libyaml-cpp-dev libpoco-dev liblog4cxx-dev libgtest-dev
 ```
-Since `cnr_common` contains common packages, it is recommended to compile the workspace without any other workspaces sourced. If you have a chained workspace setup, this should be the first one in the chain.
+Since `cnr_common` contains common packages, it is recommended to compile the workspace without any other workspaces and ROS sourced. If you have a chained workspace setup, this should be the first one in the chain. 
 
 The package provides a `.sh` file to automate the process of compiling and installing all the packages. Navigate to the workspace folder where `cnr_common` is located (`~/path_to_your_ws`) and follow these instructions:
 
