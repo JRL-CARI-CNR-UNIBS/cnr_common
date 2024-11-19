@@ -41,20 +41,7 @@ The package provides a `.sh` file to automate the process of compiling and insta
     ```bash
     . build.sh
     ```
-
-### Environment Configuration
-
-Note that `cnr_param` requires the environment variable `CNR_PARAM_ROOT_DIRECTORY` to be defined. For example, you can define it in the `~/.bashrc` file as follows:
-
-```bash
-export CNR_PARAM_ROOT_DIRECTORY="/tmp/cnr_param"
-```
-
-This is the folder used by `cnr_param` to save parameters. See the dedicated [GitHub page](https://github.com/CNR-STIIMA-IRAS/cnr_param) for more information.
-
-### Final Configuration
-
-At the end of the process, add these lines to your `~/.bashrc` file to ensure the installed libraries are visible:
+3. At the end of the process, add these lines to your `~/.bashrc` file to ensure the installed libraries are visible:
 
 ```bash
 export CNR_COMMON_WS_INSTALL_FOLDER="$HOME/path_to_your_ws/install"
@@ -71,3 +58,13 @@ fi
 ```
 
 Assign to the variable `$CNR_COMMON_WS_INSTALL_FOLDER` the actual path to your install folder. These settings are necessary to make the installed libraries visible.
+
+### Environment Configuration
+
+Note that `cnr_param` requires the environment variable `CNR_PARAM_ROOT_DIRECTORY` to be defined. For example, you can define it in the `~/.bashrc` file as follows:
+
+```bash
+export CNR_PARAM_ROOT_DIRECTORY="/tmp/cnr_param"
+```
+
+This is the folder used by `cnr_param` to save parameters. See the dedicated [GitHub page](https://github.com/CNR-STIIMA-IRAS/cnr_param) for more information.
