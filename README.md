@@ -22,7 +22,7 @@ git submodule update --init --recursive
 . update_submodules.sh
 ```
 
-## Install
+## Build & Install
 First, install the dependencies:
 ```bash
 sudo apt update
@@ -30,9 +30,11 @@ sudo apt -y install libboost-all-dev libeigen3-dev libyaml-cpp-dev libpoco-dev l
 ```
 Since `cnr_common` contains common packages, it is recommended to compile the workspace without any other workspaces and ROS sourced. If you have a chained workspace setup, this should be the first one in the chain. 
 
-If you are using ```colcon```, you can build these packages with standard ```colcon build```.
+### Build with `colcon`
+If you are using `colcon`, you can build these packages with `colcon build`.
 
-Otherwise, the package provides a `.sh` file to automate the process of compiling and installing all the packages using ```cmake```. Navigate to the workspace folder where `cnr_common` is located (`~/path_to_your_ws`) and follow these instructions:
+### Build with CMake
+The package provides a `.sh` file to automate the process of compiling and installing all the packages using `cmake`. Navigate to the workspace folder where `cnr_common` is located (`~/path_to_your_ws`) and follow these instructions:
 
 1. Copy and prepare the build script:
     ```bash
@@ -61,7 +63,7 @@ fi
 
 Assign to the variable `$CNR_COMMON_WS_INSTALL_FOLDER` the actual path to your install folder. These settings are necessary to make the installed libraries visible.
 
-### Environment Configuration
+## Environment Configuration
 
 Note that `cnr_param` requires the environment variable `CNR_PARAM_ROOT_DIRECTORY` to be defined. For example, you can define it in the `~/.bashrc` file as follows:
 
