@@ -30,7 +30,9 @@ sudo apt -y install libboost-all-dev libeigen3-dev libyaml-cpp-dev libpoco-dev l
 ```
 Since `cnr_common` contains common packages, it is recommended to compile the workspace without any other workspaces and ROS sourced. If you have a chained workspace setup, this should be the first one in the chain. 
 
-The package provides a `.sh` file to automate the process of compiling and installing all the packages. Navigate to the workspace folder where `cnr_common` is located (`~/path_to_your_ws`) and follow these instructions:
+If you are using ```colcon```, you can build these packages with standard ```colcon build```.
+
+Otherwise, the package provides a `.sh` file to automate the process of compiling and installing all the packages using ```cmake```. Navigate to the workspace folder where `cnr_common` is located (`~/path_to_your_ws`) and follow these instructions:
 
 1. Copy and prepare the build script:
     ```bash
