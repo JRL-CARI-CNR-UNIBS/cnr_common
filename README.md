@@ -3,8 +3,7 @@ A collection of commonly used utility libraries.
 
 ## Status
 
-[![GitHub Action
-Status](https://github.com/JRL-CARI-CNR-UNIBS/cnr_common/workflows/master/badge.svg)](https://github.com/JRL-CARI-CNR-UNIBS/cnr_common)
+[![build check](https://github.com/JRL-CARI-CNR-UNIBS/cnr_common/actions/workflows/build_and_install.yaml/badge.svg)](https://github.com/JRL-CARI-CNR-UNIBS/cnr_common/actions/workflows/build_and_install.yaml)
 
 ## Download
 
