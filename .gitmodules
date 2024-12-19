@@ -5,7 +5,7 @@
 [submodule "cnr_logger"]
 	path = cnr_logger
 	url = https://github.com/CNR-STIIMA-IRAS/cnr_logger.git
-	branch = modern_cmake
+	branch = master
 [submodule "cnr_param"]
 	path = cnr_param
 	url = https://github.com/CNR-STIIMA-IRAS/cnr_param.git
