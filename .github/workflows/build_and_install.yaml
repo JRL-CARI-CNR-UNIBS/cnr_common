@@ -1,0 +1,31 @@
+name: build check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  install-and-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ubuntu_version: [ubuntu-20.04, ubuntu-22.04, ubuntu-latest]
+      fail-fast: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt install -y libboost-all-dev libeigen3-dev libyaml-cpp-dev libpoco-dev liblog4cxx-dev libgtest-dev
+
+      - name: Build & Install cnr_common
+        run: |
+          chmod +x .github/workflows/github_workflow_cnr_common_install.sh 
+          .github/workflows/github_workflow_cnr_common_install.sh

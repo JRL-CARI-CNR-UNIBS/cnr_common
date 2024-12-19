@@ -1,6 +1,11 @@
 # cnr_common
 A collection of commonly used utility libraries.
 
+## Status
+
+[![GitHub Action
+Status](https://github.com/JRL-CARI-CNR-UNIBS/cnr_common/workflows/master/badge.svg)](https://github.com/JRL-CARI-CNR-UNIBS/cnr_common)
+
 ## Download
 
 To download the submodules, first move to the workspace directory and create a `/src` folder:
