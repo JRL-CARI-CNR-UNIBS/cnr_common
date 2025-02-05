@@ -13,4 +13,4 @@
 [submodule "cnr_class_loader"]
 	path = cnr_class_loader
 	url = https://github.com/JRL-CARI-CNR-UNIBS/cnr_class_loader.git
-	branch = master
+	branch = modern_cmake
