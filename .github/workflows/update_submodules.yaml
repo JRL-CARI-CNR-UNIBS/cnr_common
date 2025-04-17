@@ -1,11 +1,14 @@
 name: update_submodules
 
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 6 * * *'
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
 
     steps:
